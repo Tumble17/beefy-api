@@ -68,6 +68,14 @@ const apeClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const beefyClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/pajeon/beefyfinance',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
   sushiClient,
   comethClient,
@@ -77,4 +85,5 @@ module.exports = {
   spiritClient,
   cakeClient,
   apeClient,
+  beefyClient,
 };
